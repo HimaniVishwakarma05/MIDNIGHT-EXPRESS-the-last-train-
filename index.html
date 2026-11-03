@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Express – The Last Train</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrap">
+    <canvas id="game" width="800" height="500"></canvas>
+
+    <!-- HUD: score, level, lives, time, fuel and brake meters -->
+    <div id="hud" class="hidden">
+      <div class="panel left">
+        <div class="row"><span>SCORE</span><b id="score">0</b></div>
+        <div class="row"><span>HIGH</span><b id="high">0</b></div>
+      </div>
+      <div class="panel right">
+        <div class="row"><span>LEVEL</span><b id="level">1</b></div>
+        <div class="row"><span>LIVES</span><b id="lives" class="red">♥♥♥</b></div>
+        <div class="row"><span>TIME</span><b id="time">0:00</b></div>
+      </div>
+      <div class="panel meters">
+        <label>FUEL</label>
+        <div class="bar"><i id="fuel"></i></div>
+        <label>EMERGENCY BRAKE</label>
+        <div class="bar" id="brake-bar"><i id="brake"></i></div>
+      </div>
+      <div class="hud-btns">
+        <button id="btn-whistle">📯 WHISTLE</button>
+        <button id="btn-pause">❚❚ PAUSE</button>
+        <button id="btn-sound-hud" class="snd">SOUND: ON</button>
+      </div>
+    </div>
+
+    <!-- Touch controls (shown only on touch screens while playing) -->
+    <div id="touch" class="hidden">
+      <button id="t-left">◀</button>
+      <button id="t-brake">BRAKE</button>
+      <button id="t-right">▶</button>
+    </div>
+
+    <!-- Screen 1: start -->
+    <section id="menu" class="screen">
+      <div class="card">
+        <h1>MIDNIGHT EXPRESS</h1>
+        <h2>THE LAST TRAIN</h2>
+        <p class="story">At midnight a lone steam locomotive runs a ghostly line through dark forests and abandoned stations. Collect tickets, coins and fuel. Escape the ghost trains. Survive as long as you can.</p>
+        <button id="btn-start" class="primary">START JOURNEY</button>
+        <button id="btn-howto">HOW TO PLAY</button>
+        <button id="btn-sound-menu" class="snd">SOUND: ON</button>
+      </div>
+    </section>
+
+    <!-- Screen 2: how to play -->
+    <section id="howto" class="screen hidden">
+      <div class="card wide">
+        <h2>HOW TO PLAY</h2>
+        <ul>
+          <li><b>Controls:</b> ← / A and → / D switch lanes · Space brakes · P or Esc pauses · Enter starts</li>
+          <li><b>Collect:</b> ticket +10 · coin +5 · fuel can +15 and +20% fuel · green token +20 and +35% brake energy</li>
+          <li><b>Avoid:</b> broken track, rocks and ghost trains. Each hit costs one life.</li>
+          <li><b>Emergency brake:</b> slows the world to 35% for 2 seconds and costs 35% brake energy. A short cooldown follows.</li>
+          <li><b>Interact:</b> swipe or tap the left and right sides to change lanes · tap the middle or press W to whistle</li>
+          <li><b>Fuel and lives:</b> fuel burns over time and an empty tank ends the run. You start with 3 lives.</li>
+        </ul>
+        <button id="btn-back">BACK</button>
+      </div>
+    </section>
+
+    <!-- Screen 4: pause -->
+    <section id="pause" class="screen hidden">
+      <div class="card">
+        <h2>PAUSED</h2>
+        <button id="btn-resume" class="primary">RESUME</button>
+        <button id="btn-restart">RESTART</button>
+        <button id="btn-pmenu">MAIN MENU</button>
+      </div>
+    </section>
+
+    <!-- Screen 5: game over -->
+    <section id="over" class="screen hidden">
+      <div class="card game-over">
+        <h2>GAME OVER</h2>
+        <p id="go-new" class="hidden">★ NEW HIGH SCORE ★</p>
+        <div class="stats">
+          <div><span>FINAL SCORE</span><b id="go-score">0</b></div>
+          <div><span>HIGHEST SCORE</span><b id="go-high">0</b></div>
+          <div><span>LEVEL REACHED</span><b id="go-level">1</b></div>
+          <div><span>SURVIVAL TIME</span><b id="go-time">0:00</b></div>
+        </div>
+        <button id="btn-again" class="primary">PLAY AGAIN</button>
+        <button id="btn-omenu">MAIN MENU</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
