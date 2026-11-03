@@ -79,3 +79,6 @@ The `assets/` folders are reserved for images, sounds and fonts. Sounds are gene
 - [ ] Green token restores brake energy
 - [ ] Level increases as the game gets harder
 - [ ] Game over shows the results, and restart works
+- [ ] ## GitHub-Netlify Connection Test
+
+Testing GitHub-Netlify connection.
